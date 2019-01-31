@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+body
+{
+    margin: 0;
+}
+
+th
+{
+    text-align: left;
+}
+
+.bookmark-name-header
+{
+    width: 600px;
+}
+
+.database-name-header
+{
+    width: 500px;
+}
+
+tr.in-database
+{
+    background-color: lightblue;
+}
