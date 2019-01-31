@@ -74,6 +74,8 @@ function gotData()
         }
     }
 
-    console.log(bookmarkdata);
-    console.log(notInBookmarks);
+    // console.log(bookmarkdata);
+    // console.log(notInBookmarks);
+
+    ReactDOM.render(React.createElement(BookmarkCompare,{bookmarkdata}),document.querySelector(".bookmark-compare-body"));
 }
