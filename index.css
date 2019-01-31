@@ -24,3 +24,8 @@ tr.in-database
 {
     background-color: lightblue;
 }
+
+tr.multi-count
+{
+    background-color: lightcoral;
+}

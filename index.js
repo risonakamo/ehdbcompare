@@ -1,9 +1,13 @@
 window.onload=main;
 
+//configuration:
+const bookmarkdatafile="data/bookmarkdata.json"; //set to bookmark data output file made by extractbookmarkpage
+const hdbdatafile="data/hdb 2019-1-31.json"; //set to hdb backup file made by hdb
+
 function main()
 {
-    getData("data/bookmarkdata.json","bookmarks");
-    getData("data/hdb 2019-1-31.json","database");
+    getData(bookmarkdatafile,"bookmarks");
+    getData(hdbdatafile,"database");
 }
 
 var collectedData={};
@@ -78,4 +82,5 @@ function gotData()
     // console.log(notInBookmarks);
 
     ReactDOM.render(React.createElement(BookmarkCompare,{bookmarkdata}),document.querySelector(".bookmark-compare-body"));
+    ReactDOM.render(React.createElement(NotInDatabaseCompare,{data:notInBookmarks}),document.querySelector(".not-in-bookmarks-body"));
 }

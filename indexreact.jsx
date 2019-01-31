@@ -23,11 +23,37 @@ class BookmarkCompare extends React.Component
         if (x.count && x.count>1)
         {
           count=x.count;
+          indatabase="multi-count";
         }
 
-        return <tr className={indatabase}>
+        return <tr className={indatabase} key={i}>
           <td>{x.name}</td>
           <td>{x.dbname}</td>
+          <td><a href={x.link}>link</a></td>
+          <td>{count}</td>
+        </tr>;
+      })}
+    </>;
+  }
+}
+
+/*almost same thing as bookmark compare but for things in database that arent
+  in the bookmarks.
+  NotInDatabaseCompare(object data) */
+class NotInDatabaseCompare extends React.Component
+{
+  render()
+  {
+    return <>
+      {this.props.data.map((x,i)=>{
+        var count="";
+        if (x.count && x.count>1)
+        {
+          count=x.count;
+        }
+
+        return <tr key={i}>
+          <td>{x.name}</td>
           <td><a href={x.link}>link</a></td>
           <td>{count}</td>
         </tr>;
