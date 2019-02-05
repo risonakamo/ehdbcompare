@@ -21,7 +21,8 @@ class BookmarkCompare extends React.Component {
         className: indatabase,
         key: i
       }, React.createElement("td", null, x.name), React.createElement("td", null, x.dbname), React.createElement("td", null, React.createElement("a", {
-        href: x.link
+        href: x.link,
+        target: "_blank"
       }, "link")), React.createElement("td", null, count));
     }));
   }
@@ -40,7 +41,8 @@ class NotInDatabaseCompare extends React.Component {
       return React.createElement("tr", {
         key: i
       }, React.createElement("td", null, x.name), React.createElement("td", null, React.createElement("a", {
-        href: x.link
+        href: x.link,
+        target: "_blank"
       }, "link")), React.createElement("td", null, count));
     }));
   }

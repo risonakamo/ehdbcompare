@@ -29,7 +29,7 @@ class BookmarkCompare extends React.Component
         return <tr className={indatabase} key={i}>
           <td>{x.name}</td>
           <td>{x.dbname}</td>
-          <td><a href={x.link}>link</a></td>
+          <td><a href={x.link} target="_blank">link</a></td>
           <td>{count}</td>
         </tr>;
       })}
@@ -54,7 +54,7 @@ class NotInDatabaseCompare extends React.Component
 
         return <tr key={i}>
           <td>{x.name}</td>
-          <td><a href={x.link}>link</a></td>
+          <td><a href={x.link} target="_blank">link</a></td>
           <td>{count}</td>
         </tr>;
       })}
