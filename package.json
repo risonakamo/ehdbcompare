@@ -1,5 +1,6 @@
 {
   "name": "hdb-check",
+  "version":"1.1.0",
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/preset-react": "^7.0.0",

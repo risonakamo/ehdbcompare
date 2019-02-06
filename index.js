@@ -1,12 +1,16 @@
 window.onload=main;
 
 //configuration:
-const bookmarkdatafile="data/bookmarkdata.json"; //set to bookmark data output file made by extractbookmarkpage
+//set to bookmark data output files
+//made by extractbookmarkpage
+//(so should be array)
+const bookmarkdatafile=["data/bookmarkdata.json","data/bookmarkdata2.json"];
 const hdbdatafile="data/hdb 2019-1-31.json"; //set to hdb backup file made by hdb
 
 function main()
 {
-    getData(bookmarkdatafile,"bookmarks");
+    getData(bookmarkdatafile[0],"bookmarks");
+    getData(bookmarkdatafile[1],"bookmarks");
     getData(hdbdatafile,"database");
 }
 
@@ -20,7 +24,16 @@ function getData(filename,whichOne)
     r.onreadystatechange=()=>{
         if (r.readyState==4)
         {
-            collectedData[whichOne]=JSON.parse(r.response);
+            if (!collectedData[whichOne])
+            {
+                collectedData[whichOne]=JSON.parse(r.response);
+            }
+
+            else
+            {
+                collectedData[whichOne]=[...collectedData[whichOne],...JSON.parse(r.response)];
+            }
+
             dataCollected++;
             gotData();
         }
@@ -31,7 +44,7 @@ function getData(filename,whichOne)
 
 function gotData()
 {
-    if (dataCollected!=2)
+    if (dataCollected!=bookmarkdatafile.length+1)
     {
         return;
     }
